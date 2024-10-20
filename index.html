@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://Kep1er255.github.io/file/stylesheet.css">
+    <title>Wii風インターフェース</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="photo">
+                <img src="your-photo.jpg" alt="Sample" class="profile-photo"> <!-- ここに写真のパスを入れてください -->
+            </div>
+            <div class="date" id="date"></div>
+            <div class="separator"></div> <!-- 空のセパレーター -->
+            <div class="weather" id="weather"></div>
+            <div class="news" id="news"></div>
+        </header>
+        
+        <main>
+            <div class="folder" onclick="toggleFiles('folder1')">
+                <div class="folder-icon">📁</div>
+                <span>フォルダ1</span>
+            </div>
+            <div class="file-list" id="folder1" style="display: none;">
+                <div class="file">
+                    <div class="file-icon">📄</div> <!-- ファイルアイコン -->
+                    <span>ファイル1.txt</span>
+                </div>
+                <div class="file">
+                    <div class="file-icon">📄</div> <!-- ファイルアイコン -->
+                    <span>ファイル2.txt</span>
+                </div>
+            </div>
+            <div class="folder" onclick="toggleFiles('folder2')">
+                <div class="folder-icon">📁</div>
+                <span>フォルダ2</span>
+            </div>
+            <div class="file-list" id="folder2" style="display: none;">
+                <div class="file">
+                    <div class="file-icon">📄</div> <!-- ファイルアイコン -->
+                    <span>ファイル3.txt</span>
+                </div>
+                <div class="file">
+                    <div class="file-icon">📄</div> <!-- ファイルアイコン -->
+                    <span>ファイル4.txt</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
