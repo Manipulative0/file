@@ -30,10 +30,10 @@ header {
 }
 
 .profile-photo {
-    width: 100px; /* 写真の幅 */
-    height: auto; /* 高さは自動調整 */
-    border: 2px solid black; /* 写真の周りに黒いボーダー */
-    border-radius: 0; /* 丸くしない */
+    width: 50px; /* 写真の幅 */
+    height: 50px; /* 写真の高さ */
+    border-radius: 50%; /* 丸くする */
+    border: 2px solid black; /* 黒いボーダー */
 }
 
 .text-section {
@@ -95,3 +95,4 @@ main {
 .file-list {
     padding-left: 30px; /* インデントでファイルリストを表示 */
 }
+
