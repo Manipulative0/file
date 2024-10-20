@@ -1,0 +1,82 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* 背景色を白に */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: black; /* テキストの色を黒に */
+}
+
+.photo {
+    margin-right: 20px;
+}
+
+.profile-photo {
+    width: 50px; /* 写真の幅 */
+    height: 50px; /* 写真の高さ */
+    border-radius: 50%; /* 丸くする */
+    border: 2px solid black; /* 黒いボーダー */
+}
+
+.date {
+    margin-right: 10px; /* 日付の右のスペース */
+}
+
+.separator {
+    flex-grow: 1; /* セパレーターを中央に配置 */
+    margin: 0 20px; /* セパレーターの左右のスペース */
+    height: 2px; /* セパレーターの高さ */
+    background-color: black; /* セパレーターの色 */
+}
+
+.weather, .news {
+    margin-right: 20px; /* 天気とニュースの右のスペース */
+}
+
+main {
+    padding: 10px;
+}
+
+.folder {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 10px; /* 角を丸く */
+    transition: background-color 0.3s;
+    margin-bottom: 10px; /* フォルダー間のスペース */
+}
+
+.folder:hover {
+    background-color: #f0f0f0; /* ホバー時の色 */
+}
+
+.folder-icon {
+    margin-right: 10px;
+    font-size: 30px; /* アイコンを少し大きく */
+}
+
+.file {
+    display: flex;
+    align-items: center;
+    padding: 5px 0; /* 上下の余白 */
+}
+
+.file-icon {
+    margin-right: 10px; /* ファイル名の左のスペース */
+    font-size: 20px; /* ファイルアイコンのサイズ */
+}
+
+.file-list {
+    padding-left: 30px; /* インデントでファイルリストを表示 */
+}
