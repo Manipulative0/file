@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>写真ギャラリー</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 横2列に設定 */
+            gap: 15px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 1/1; /* 正方形に設定 */
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="gallery-container">
+    <div class="gallery-item">
+        <img src="photo1.jpg" alt="写真1">
+    </div>
+    <div class="gallery-item">
+        <img src="photo2.jpg" alt="写真2">
+    </div>
+    <div class="gallery-item">
+        <img src="photo3.jpg" alt="写真3">
+    </div>
+    <!-- ここにどんどん写真を追加していきます -->
+    <!-- 例として500個分のコードが続きます -->
+
+    <!-- 499 -->
+    <div class="gallery-item">
+        <img src="photo499.jpg" alt="写真499">
+    </div>
+    <!-- 500 -->
+    <div class="gallery-item">
+        <img src="photo500.jpg" alt="写真500">
+    </div>
+</div>
+
+</body>
+</html>
