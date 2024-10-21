@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://Kep1er255.github.io/file/stylesheet.css">
     <title>RUIの写真倉庫web</title>
+    <style>
+        /* 簡単なスタイルを追加 */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 200px;
+            margin: 20px auto;
+        }
+        .number-button {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            background-color: white;
+            color: black;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .number-button:hover {
+            background-color: #f0f0f0;
+        }
+        #input-display {
+            font-size: 24px;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -14,7 +46,7 @@
                     <img src="iine.jpg" alt="" class="profile-photo"> <!-- ここに写真のパスを入れてください -->
                 </div>
                 <div class="text-section">
-                    <div class="site-title" id="siteTitle">五十嵐琉偉の写真倉庫</div> <!-- サイトタイトル -->
+                    <div class="site-title" id="siteTitle">RUIの写真倉庫</div> <!-- サイトタイトル -->
                     <div class="separator"></div> <!-- 上のセパレーター -->
                     <div class="description" id="description">昔撮った写真や色々な写真があります。ファイルをクリックしたら写真がみれます。読み込みが遅いです。</div> <!-- サイトの説明文 -->
                 </div>
@@ -33,7 +65,7 @@
                 </div>
                 <div class="file">
                     <div class="file-icon">📄</div> <!-- ファイルアイコン -->
-                    <a href="gallery.html" class="file-link">下仁田.rtf</a> <!-- ファイル2へのリンク -->
+                    <a href="javascript:void(0);" class="file-link" onclick="showPasswordInput()">下仁田.rtf</a> <!-- 暗証番号をチェック -->
                 </div>
             </div>
             <div class="folder" onclick="toggleFiles('folder2')">
@@ -50,9 +82,57 @@
                     <a href="file4.html" class="file-link">ファイル4.txt</a> <!-- ファイル4へのリンク -->
                 </div>
             </div>
+
+            <!-- 暗証番号入力エリア -->
+            <div id="input-display">入力: </div>
+            <div class="button-container">
+                <div class="number-button" onclick="addToInput('1')">1</div>
+                <div class="number-button" onclick="addToInput('2')">2</div>
+                <div class="number-button" onclick="addToInput('3')">3</div>
+                <div class="number-button" onclick="addToInput('4')">4</div>
+                <div class="number-button" onclick="addToInput('5')">5</div>
+                <div class="number-button" onclick="addToInput('6')">6</div>
+                <div class="number-button" onclick="addToInput('7')">7</div>
+                <div class="number-button" onclick="addToInput('8')">8</div>
+                <div class="number-button" onclick="addToInput('9')">9</div>
+                <div class="number-button" onclick="addToInput('0')">0</div>
+                <div class="number-button" onclick="checkPassword()">OK</div> <!-- 確認ボタン -->
+                <div class="number-button" onclick="clearInput()">クリア</div> <!-- クリアボタン -->
+            </div>
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        let inputNumber = '';
+
+        function addToInput(number) {
+            inputNumber += number;
+            document.getElementById('input-display').innerText = '入力: ' + inputNumber;
+        }
+
+        function checkPassword() {
+            if (inputNumber === "0908") {
+                window.location.href = "gallery.html"; // 正しい番号が入力されたらファイルを開く
+            } else {
+                alert("暗証番号が間違っています。");
+            }
+        }
+
+        function clearInput() {
+            inputNumber = '';
+            document.getElementById('input-display').innerText = '入力: ';
+        }
+
+        function toggleFiles(folderId) {
+            const folder = document.getElementById(folderId);
+            folder.style.display = folder.style.display === "none" ? "block" : "none";
+        }
+
+        function showPasswordInput() {
+            // パスワード入力エリアを表示
+            document.getElementById('input-display').innerText = '入力: ';
+            inputNumber = '';
+        }
+    </script>
 </body>
 </html>
