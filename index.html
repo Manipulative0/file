@@ -85,7 +85,7 @@
 
             <!-- 暗証番号入力エリア -->
             <div id="input-display">入力: </div>
-            <div class="button-container">
+            <div class="button-container" id="button-container" style="display: none;">
                 <div class="number-button" onclick="addToInput('1')">1</div>
                 <div class="number-button" onclick="addToInput('2')">2</div>
                 <div class="number-button" onclick="addToInput('3')">3</div>
@@ -97,7 +97,7 @@
                 <div class="number-button" onclick="addToInput('9')">9</div>
                 <div class="number-button" onclick="addToInput('0')">0</div>
                 <div class="number-button" onclick="checkPassword()">OK</div> <!-- 確認ボタン -->
-                <div class="number-button" onclick="clearInput()">クリア</div> <!-- クリアボタン -->
+                <div class="number-button" onclick="clearInput()">C</div> <!-- クリアボタン -->
             </div>
         </main>
     </div>
@@ -106,8 +106,10 @@
         let inputNumber = '';
 
         function addToInput(number) {
-            inputNumber += number;
-            document.getElementById('input-display').innerText = '入力: ' + inputNumber;
+            if (inputNumber.length < 4) { // 4文字までの制限
+                inputNumber += number;
+                document.getElementById('input-display').innerText = '入力: ' + inputNumber;
+            }
         }
 
         function checkPassword() {
@@ -115,6 +117,7 @@
                 window.location.href = "gallery.html"; // 正しい番号が入力されたらファイルを開く
             } else {
                 alert("暗証番号が間違っています。");
+                clearInput(); // 間違った場合はクリア
             }
         }
 
@@ -132,6 +135,7 @@
             // パスワード入力エリアを表示
             document.getElementById('input-display').innerText = '入力: ';
             inputNumber = '';
+            document.getElementById('button-container').style.display = 'flex'; // ボタンを表示
         }
     </script>
 </body>
