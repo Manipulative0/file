@@ -23,6 +23,7 @@
             cursor: pointer;
             border-radius: 5px;
             z-index: 1000;
+            transition: opacity 0.3s ease; /* アニメーションを追加 */
         }
 
         .menu {
@@ -98,7 +99,7 @@
 <body>
 
 <!-- メニューボタン -->
-<button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+<button class="menu-button" id="menuButton" onclick="toggleMenu()">☰ Menu</button>
 
 <!-- メニュー -->
 <div class="menu" id="menu">
@@ -314,10 +315,16 @@
 <script>
     function toggleMenu() {
         var menu = document.getElementById('menu');
+        var menuButton = document.getElementById('menuButton');
         menu.classList.toggle('open');
+        // メニューが開いている場合、ボタンを非表示にする
+        if (menu.classList.contains('open')) {
+            menuButton.style.opacity = '0'; // ボタンを非表示にする
+        } else {
+            menuButton.style.opacity = '1'; // ボタンを再表示する
+        }
     }
 </script>
 
 </body>
 </html>
-
