@@ -23,7 +23,6 @@
             cursor: pointer;
             border-radius: 5px;
             z-index: 1000;
-            transition: opacity 0.3s ease; /* アニメーションを追加 */
         }
 
         .menu {
@@ -74,6 +73,12 @@
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 60px;
+            opacity: 1; /* 背景を常に表示 */
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-container.hidden {
+            opacity: 0; /* 非表示 */
         }
 
         .gallery-item {
@@ -99,7 +104,7 @@
 <body>
 
 <!-- メニューボタン -->
-<button class="menu-button" id="menuButton" onclick="toggleMenu()">☰ Menu</button>
+<button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
 
 <!-- メニュー -->
 <div class="menu" id="menu">
@@ -108,7 +113,7 @@
     <a href="#">ギャラリー</a>
 </div>
 
-<div class="gallery-container">
+<div class="gallery-container" id="gallery">
     <div class="gallery-item">
         <img src="simonita/IMG_0511.JPG" alt="写真1">
     </div>
@@ -189,7 +194,7 @@
     </div>
 </div>
 
-<div class="gallery-container">
+<div class="gallery-container" id="gallery2">
     <div class="gallery-item">
         <img src="simonita2/IMG_0682.JPG" alt="写真1">
     </div>
@@ -315,14 +320,9 @@
 <script>
     function toggleMenu() {
         var menu = document.getElementById('menu');
-        var menuButton = document.getElementById('menuButton');
+        var gallery = document.getElementById('gallery');
         menu.classList.toggle('open');
-        // メニューが開いている場合、ボタンを非表示にする
-        if (menu.classList.contains('open')) {
-            menuButton.style.opacity = '0'; // ボタンを非表示にする
-        } else {
-            menuButton.style.opacity = '1'; // ボタンを再表示する
-        }
+        gallery.classList.toggle('hidden', menu.classList.contains('open'));
     }
 </script>
 
