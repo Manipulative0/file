@@ -13,7 +13,7 @@
         }
 
         .menu-button {
-            position: absolute; /* 固定をやめ、通常の配置に変更 */
+            position: absolute;
             top: 20px;
             left: 20px;
             background-color: #333;
@@ -26,19 +26,19 @@
         }
 
         .menu {
-            position: absolute; /* メニューも固定せず、通常のレイアウトに */
+            position: absolute;
             top: 0;
-            left: -300px; /* 初期状態で画面外に配置 */
+            left: -300px;
             width: 300px;
             height: 100%;
             background-color: #333;
             padding-top: 60px;
             z-index: 999;
-            transition: left 0.5s ease; /* 左から右へスライドイン */
+            transition: left 0.5s ease;
         }
 
         .menu.open {
-            left: 0; /* メニューが開いた状態 */
+            left: 0;
         }
 
         .menu a {
@@ -56,8 +56,8 @@
             position: absolute;
             top: 10px;
             right: 20px;
-            background-color: #fff;
-            color: #333;
+            background-color: #000; /* 背景を黒に設定 */
+            color: #fff; /* テキストを白に設定 */
             border: none;
             padding: 5px 10px;
             cursor: pointer;
@@ -99,12 +99,12 @@
 <body>
 
 <!-- メニューボタン -->
-<button class="menu-button" onclick="toggleMenu()">☰</button>
+<button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
 
 <!-- メニュー -->
 <div class="menu" id="menu">
     <button class="close-button" onclick="toggleMenu()">×</button>
-    <a href="index.html">ホームに戻る</a> <!-- index.htmlに戻るリンク -->
+    <a href="index.html">ホームに戻る</a>
     <a href="#">ギャラリー</a>
 </div>
 
@@ -150,7 +150,7 @@
 <script>
     function toggleMenu() {
         var menu = document.getElementById('menu');
-        menu.classList.toggle('open'); // メニューの開閉をトグル
+        menu.classList.toggle('open');
     }
 </script>
 
