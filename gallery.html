@@ -5,267 +5,319 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>写真ギャラリー</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .menu-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .menu {
+            position: absolute;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 60px;
+            z-index: 999;
+            transition: left 0.5s ease;
+        }
+
+        .menu.open {
+            left: 0;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
         .gallery-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px; /* 画像の間隔 */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2カラム */
+            gap: 15px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 60px;
         }
 
         .gallery-item {
-            width: 150px; /* 任意の幅 */
-            height: 150px; /* 任意の高さ */
-            overflow: hidden; /* はみ出た部分を隠す */
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 200px; /* 高さを統一 */
         }
 
         .gallery-item img {
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* 画像の比率を保ちながらトリミング */
+            height: 100%; /* 高さを100%に設定 */
+            object-fit: cover;
         }
 
-        .timestamp {
-            text-align: center; /* 時間を中央に */
-            font-size: 12px; /* フォントサイズ */
-            color: #555; /* 色 */
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
-    <h1>写真ギャラリー</h1>
-    <div class="gallery-container">
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0682.JPG" alt="IMG_0682.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0685.JPG" alt="IMG_0685.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0687.JPG" alt="IMG_0687.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0690.JPG" alt="IMG_0690.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0691.JPG" alt="IMG_0691.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0692.JPG" alt="IMG_0692.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0695.JPG" alt="IMG_0695.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0709.JPG" alt="IMG_0709.JPG">
-            <div class="timestamp">5 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0710.JPG" alt="IMG_0710.JPG">
-            <div class="timestamp">5 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0711.JPG" alt="IMG_0711.JPG">
-            <div class="timestamp">5 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0721.JPG" alt="IMG_0721.JPG">
-            <div class="timestamp">7 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0722.JPG" alt="IMG_0722.JPG">
-            <div class="timestamp">7 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0723.JPG" alt="IMG_0723.JPG">
-            <div class="timestamp">7 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0724.JPG" alt="IMG_0724.JPG">
-            <div class="timestamp">6 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0725.JPG" alt="IMG_0725.JPG">
-            <div class="timestamp">6 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0730.JPG" alt="IMG_0730.JPG">
-            <div class="timestamp">6 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0750.JPG" alt="IMG_0750.JPG">
-            <div class="timestamp">3 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0751.JPG" alt="IMG_0751.JPG">
-            <div class="timestamp">3 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0753.JPG" alt="IMG_0753.JPG">
-            <div class="timestamp">3 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0760.JPG" alt="IMG_0760.JPG">
-            <div class="timestamp">3 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0761.JPG" alt="IMG_0761.JPG">
-            <div class="timestamp">3 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0762.JPG" alt="IMG_0762.JPG">
-            <div class="timestamp">3 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0763.JPG" alt="IMG_0763.JPG">
-            <div class="timestamp">3 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0764.JPG" alt="IMG_0764.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0765.JPG" alt="IMG_0765.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0766.JPG" alt="IMG_0766.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0771.JPG" alt="IMG_0771.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0772.JPG" alt="IMG_0772.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0773.JPG" alt="IMG_0773.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0774.JPG" alt="IMG_0774.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0775.JPG" alt="IMG_0775.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0777.JPG" alt="IMG_0777.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0781.JPG" alt="IMG_0781.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0782.JPG" alt="IMG_0782.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0786.JPG" alt="IMG_0786.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0787.JPG" alt="IMG_0787.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0788.JPG" alt="IMG_0788.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0789.JPG" alt="IMG_0789.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0790.JPG" alt="IMG_0790.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0791.JPG" alt="IMG_0791.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0792.JPG" alt="IMG_0792.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0793.JPG" alt="IMG_0793.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0794.JPG" alt="IMG_0794.JPG">
-            <div class="timestamp">1 hour ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0811.JPG" alt="IMG_0811.JPG">
-            <div class="timestamp">51 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0815.JPG" alt="IMG_0815.JPG">
-            <div class="timestamp">51 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0819.JPG" alt="IMG_0819.JPG">
-            <div class="timestamp">51 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0823.JPG" alt="IMG_0823.JPG">
-            <div class="timestamp">50 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0825.JPG" alt="IMG_0825.JPG">
-            <div class="timestamp">50 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0826.JPG" alt="IMG_0826.JPG">
-            <div class="timestamp">50 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0828.JPG" alt="IMG_0828.JPG">
-            <div class="timestamp">50 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0829.JPG" alt="IMG_0829.JPG">
-            <div class="timestamp">50 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0832.JPG" alt="IMG_0832.JPG">
-            <div class="timestamp">50 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0834.JPG" alt="IMG_0834.JPG">
-            <div class="timestamp">49 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0835.JPG" alt="IMG_0835.JPG">
-            <div class="timestamp">49 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0836.JPG" alt="IMG_0836.JPG">
-            <div class="timestamp">49 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0838.JPG" alt="IMG_0838.JPG">
-            <div class="timestamp">48 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0844.JPG" alt="IMG_0844.JPG">
-            <div class="timestamp">48 minutes ago</div>
-        </div>
-        <div class="gallery-item">
-            <img src="simonita2/IMG_0845.JPG" alt="IMG_0845.JPG">
-            <div class="timestamp">48 minutes ago</div>
-        </div>
+
+<!-- メニューボタン -->
+<button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+
+<!-- メニュー -->
+<div class="menu" id="menu">
+    <button class="close-button" onclick="toggleMenu()">×</button>
+    <a href="index.html">ホームに戻る</a>
+    <a href="#">ギャラリー</a>
+</div>
+
+<div class="gallery-container">
+    <div class="gallery-item">
+        <img src="simonita/IMG_0511.JPG" alt="写真1">
     </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0512.JPG" alt="写真2">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0514.JPG" alt="写真4">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0516.JPG" alt="写真5">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0517.JPG" alt="写真7">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0518.JPG" alt="写真8">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0520.JPG" alt="写真10">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0521.JPG" alt="写真11">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0522.JPG" alt="写真12">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0524.JPG" alt="写真13">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0525.JPG" alt="写真14">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0531.JPG" alt="写真15">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0532.JPG" alt="写真16">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0533.JPG" alt="写真17">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0545.JPG" alt="写真18">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0546.JPG" alt="写真19">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0550.JPG" alt="写真20">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0556.JPG" alt="写真21">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0557.JPG" alt="写真22">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0558.JPG" alt="写真23">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0563.JPG" alt="写真24">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0564.JPG" alt="写真25">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0566.JPG" alt="写真26">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0569.JPG" alt="写真27">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0570.JPG" alt="写真28">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita/IMG_0579.JPG" alt="写真29">
+    </div>
+</div>
+
+<div class="gallery-container">
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0682.JPG" alt="写真1">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0685.JPG" alt="写真2">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0687.JPG" alt="写真3">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0690.JPG" alt="写真4">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0691.JPG" alt="写真5">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0692.JPG" alt="写真6">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0695.JPG" alt="写真7">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0764.JPG" alt="写真8">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0765.JPG" alt="写真9">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0766.JPG" alt="写真10">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0771.JPG" alt="写真11">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0772.JPG" alt="写真12">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0773.JPG" alt="写真13">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0775.JPG" alt="写真14">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0777.JPG" alt="写真15">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0781.JPG" alt="写真16">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0782.JPG" alt="写真17">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0786.JPG" alt="写真18">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0787.JPG" alt="写真19">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0788.JPG" alt="写真20">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0789.JPG" alt="写真21">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0790.JPG" alt="写真22">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0791.JPG" alt="写真23">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0792.JPG" alt="写真24">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0793.JPG" alt="写真25">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0794.JPG" alt="写真26">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0811.JPG" alt="写真27">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0815.JPG" alt="写真28">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0819.JPG" alt="写真29">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0823.JPG" alt="写真30">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0825.JPG" alt="写真31">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0826.JPG" alt="写真32">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0828.JPG" alt="写真33">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0829.JPG" alt="写真34">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0832.JPG" alt="写真35">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0834.JPG" alt="写真36">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0835.JPG" alt="写真37">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0836.JPG" alt="写真38">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0838.JPG" alt="写真39">
+    </div>
+    <div class="gallery-item">
+        <img src="simonita2/IMG_0844.JPG" alt="写真40">
+    </div>
+</div>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('open');
+    }
+</script>
+
 </body>
 </html>
 
