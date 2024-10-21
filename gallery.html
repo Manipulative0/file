@@ -13,7 +13,7 @@
         }
 
         .menu-button {
-            position: fixed;
+            position: fixed; /* ボタンを固定 */
             top: 20px;
             left: 20px;
             background-color: #333;
@@ -22,18 +22,19 @@
             padding: 10px;
             cursor: pointer;
             border-radius: 5px;
+            z-index: 1000; /* 他の要素より前に表示されるように設定 */
         }
 
         .menu {
             display: none;
-            position: fixed;
+            position: fixed; /* メニューも固定 */
             top: 0;
             left: 0;
             width: 200px;
             height: 100%;
             background-color: #333;
             padding-top: 60px;
-            z-index: 1000;
+            z-index: 999; /* メニューボタンより少し後に表示されるように */
         }
 
         .menu a {
