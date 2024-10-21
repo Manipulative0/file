@@ -66,19 +66,13 @@
 
         .gallery-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2カラム */
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 2カラムで自動調整 */
             gap: 15px;
             padding: 20px;
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 60px;
-            opacity: 1; /* 背景を常に表示 */
-            transition: opacity 0.5s ease;
-        }
-
-        .gallery-container.hidden {
-            opacity: 0; /* 非表示 */
         }
 
         .gallery-item {
@@ -86,13 +80,14 @@
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 200px; /* 高さを統一 */
+            width: 200px; /* 幅を固定 */
+            height: 200px; /* 高さも固定して正方形に */
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%; /* 高さを100%に設定 */
-            object-fit: cover;
+            object-fit: cover; /* 画像を正方形にトリミング */
         }
 
         .gallery-item:hover {
@@ -113,7 +108,7 @@
     <a href="#">ギャラリー</a>
 </div>
 
-<div class="gallery-container" id="gallery">
+<div class="gallery-container">
     <div class="gallery-item">
         <img src="simonita/IMG_0511.JPG" alt="写真1">
     </div>
@@ -194,7 +189,7 @@
     </div>
 </div>
 
-<div class="gallery-container" id="gallery2">
+<div class="gallery-container">
     <div class="gallery-item">
         <img src="simonita2/IMG_0682.JPG" alt="写真1">
     </div>
@@ -320,9 +315,7 @@
 <script>
     function toggleMenu() {
         var menu = document.getElementById('menu');
-        var gallery = document.getElementById('gallery');
         menu.classList.toggle('open');
-        gallery.classList.toggle('hidden', menu.classList.contains('open'));
     }
 </script>
 
