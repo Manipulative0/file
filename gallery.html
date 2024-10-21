@@ -26,15 +26,19 @@
         }
 
         .menu {
-            display: none;
-            position: fixed; /* メニューも固定 */
+            position: fixed;
             top: 0;
-            left: 0;
+            left: -200px; /* 初期状態でメニューを画面外に配置 */
             width: 200px;
             height: 100%;
             background-color: #333;
             padding-top: 60px;
             z-index: 999; /* メニューボタンより少し後に表示されるように */
+            transition: left 0.3s ease; /* スライドインのアニメーション */
+        }
+
+        .menu.open {
+            left: 0; /* メニューが開いた時に表示 */
         }
 
         .menu a {
@@ -77,11 +81,6 @@
         .gallery-item:hover {
             transform: scale(1.03);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        /* メニューの表示切り替え */
-        .menu.open {
-            display: block;
         }
     </style>
 </head>
@@ -139,9 +138,14 @@
     // メニューの開閉を切り替える関数
     function toggleMenu() {
         var menu = document.getElementById('menu');
-        menu.classList.toggle('open');
+        if (menu.classList.contains('open')) {
+            menu.classList.remove('open'); // メニューが開いている場合は閉じる
+        } else {
+            menu.classList.add('open'); // メニューが閉じている場合は開く
+        }
     }
 </script>
 
 </body>
 </html>
+
