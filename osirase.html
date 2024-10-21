@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お知らせ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 3em;
+            letter-spacing: 0.2em;
+            font-weight: lighter;
+            margin-bottom: 20px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        /* お知らせセクション */
+        .notice-box {
+            background-color: #f9f9f9;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .notice-box h2 {
+            font-size: 1.8em;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .notice-box p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .notice-box .divider {
+            width: 60%;
+            height: 2px;
+            background-color: #666;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>お知らせサイト</h1>
+    </header>
+
+    <main>
+        <!-- お知らせボックス -->
+        <div class="notice-box">
+            <h2>重要なお知らせ</h2>
+            <div class="divider"></div>
+            <p>読み込みが前より早くなるようにしました。</p>
+                        <p>10/22　草津写真追加予定。</p>
+        </div>
+
+        <div class="notice-box">
+            <h2>新機能のお知らせ</h2>
+            <div class="divider"></div>
+            <p>メニューバーを追加</p>
+        </div>
+
+    
+    </main>
+</body>
+</html>
