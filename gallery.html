@@ -66,7 +66,7 @@
 
         .gallery-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2カラム */
+            grid-template-columns: repeat(2, 1fr); /* PC用2カラム */
             gap: 15px;
             padding: 20px;
             background-color: #fff;
@@ -75,13 +75,19 @@
             margin-top: 60px;
         }
 
+        /* スマホ用1カラム */
+        @media (max-width: 600px) {
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .gallery-item {
             position: relative;
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 200px; /* 高さを統一 */
-            width: 200px; /* 幅を統一 */
+            aspect-ratio: 1; /* 正方形の比率を設定 */
         }
 
         .gallery-item img {
@@ -230,94 +236,33 @@
         <img src="simonita2/IMG_0773.JPG" alt="写真13">
     </div>
     <div class="gallery-item">
-        <img src="simonita2/IMG_0775.JPG" alt="写真14">
+        <img src="simonita2/IMG_0774.JPG" alt="写真14">
     </div>
     <div class="gallery-item">
-        <img src="simonita2/IMG_0777.JPG" alt="写真15">
+        <img src="simonita2/IMG_0775.JPG" alt="写真15">
     </div>
     <div class="gallery-item">
-        <img src="simonita2/IMG_0781.JPG" alt="写真16">
+        <img src="simonita2/IMG_0776.JPG" alt="写真16">
     </div>
     <div class="gallery-item">
-        <img src="simonita2/IMG_0782.JPG" alt="写真17">
+        <img src="simonita2/IMG_0777.JPG" alt="写真17">
     </div>
     <div class="gallery-item">
-        <img src="simonita2/IMG_0786.JPG" alt="写真18">
+        <img src="simonita2/IMG_0778.JPG" alt="写真18">
     </div>
     <div class="gallery-item">
-        <img src="simonita2/IMG_0787.JPG" alt="写真19">
+        <img src="simonita2/IMG_0779.JPG" alt="写真19">
     </div>
     <div class="gallery-item">
-        <img src="simonita2/IMG_0788.JPG" alt="写真20">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0789.JPG" alt="写真21">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0790.JPG" alt="写真22">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0791.JPG" alt="写真23">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0792.JPG" alt="写真24">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0793.JPG" alt="写真25">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0794.JPG" alt="写真26">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0811.JPG" alt="写真27">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0815.JPG" alt="写真28">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0819.JPG" alt="写真29">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0823.JPG" alt="写真30">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0825.JPG" alt="写真31">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0826.JPG" alt="写真32">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0828.JPG" alt="写真33">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0829.JPG" alt="写真34">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0832.JPG" alt="写真35">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0834.JPG" alt="写真36">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0835.JPG" alt="写真37">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0836.JPG" alt="写真38">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0838.JPG" alt="写真39">
-    </div>
-    <div class="gallery-item">
-        <img src="simonita2/IMG_0844.JPG" alt="写真40">
+        <img src="simonita2/IMG_0780.JPG" alt="写真20">
     </div>
 </div>
 
 <script>
     function toggleMenu() {
-        var menu = document.getElementById('menu');
-        menu.classList.toggle('open');
+        var menu = document.getElementById("menu");
+        menu.classList.toggle("open");
     }
 </script>
-
 </body>
 </html>
