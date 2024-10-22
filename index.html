@@ -141,9 +141,9 @@
         }
 
         function checkPassword() {
-            if (inputNumber === "0908") {
+            if (inputNumber === "0908" && targetPage) {
                 window.location.href = targetPage; // 正しい番号が入力されたらファイルを開く
-            } else {
+            } else if (inputNumber !== "0908") {
                 alert("暗証番号が間違っています。");
                 clearInput(); // 間違った場合はクリア
             }
@@ -177,4 +177,5 @@
     </script>
 </body>
 </html>
+
 
