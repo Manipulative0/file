@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>草津.rtf</title> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .menu-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .menu {
+            position: absolute;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 60px;
+            z-index: 999;
+            transition: left 0.5s ease;
+        }
+
+        .menu.open {
+            left: 0;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* PC用2カラム */
+            gap: 15px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 60px;
+        }
+
+        /* スマホ用1カラム */
+        @media (max-width: 600px) {
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 1; /* 正方形の比率を設定 */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%; /* 高さを100%に設定 */
+            object-fit: cover;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<!-- メニューボタン -->
+<button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+
+<!-- メニュー -->
+<div class="menu" id="menu">
+    <button class="close-button" onclick="toggleMenu()">×</button>
+    <a href="index.html">ホームに戻る</a>
+     <a href="osirase.html">更新のお知らせ</a>
+    <a href="setumei.html">このサイトの説明</a>
+</div>
+
+<div class="gallery-container">
+    <div class="gallery-item">
+        <img src="kusatu/IMG_0511.JPG" alt="写真1"> 
+    </div>
+    
+ <script>
+    function toggleMenu() {
+        var menu = document.getElementById("menu");
+        menu.classList.toggle("open");
+    }
+</script>
+</body>
+</html>
