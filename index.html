@@ -83,11 +83,11 @@
             <div class="file-list" id="folder1" style="display: none;">
                 <div class="file">
                     <div class="file-icon">📄</div> <!-- ファイルアイコン -->
-                   <a href="javascript:void(0);" class="file-link" onclick="showPasswordInput()">草津.rtf 日付2015/10/18</a> 
+                   <a href="javascript:void(0);" class="file-link" onclick="showPasswordInput('kusatu.html')">草津.rtf 日付2015/10/18</a> 
                 </div>
                 <div class="file">
                     <div class="file-icon">📄</div> <!-- ファイルアイコン -->
-                    <a href="javascript:void(0);" class="file-link" onclick="showPasswordInput()">下仁田.rtf 日付2013/12/31</a> <!-- 暗証番号をチェック -->
+                    <a href="javascript:void(0);" class="file-link" onclick="showPasswordInput('shimonita.html')">下仁田.rtf 日付2013/12/31</a> <!-- 暗証番号をチェック -->
                 </div>
             </div>
             <div class="folder" onclick="toggleFiles('folder2')">
@@ -131,6 +131,7 @@
 
     <script>
         let inputNumber = '';
+        let targetPage = ''; // 遷移先ページを保存する変数
 
         function addToInput(number) {
             if (inputNumber.length < 4) { // 4文字までの制限
@@ -141,7 +142,7 @@
 
         function checkPassword() {
             if (inputNumber === "0908") {
-                window.location.href = "gallery.html"; // 正しい番号が入力されたらファイルを開く
+                window.location.href = targetPage; // 正しい番号が入力されたらファイルを開く
             } else {
                 alert("暗証番号が間違っています。");
                 clearInput(); // 間違った場合はクリア
@@ -158,8 +159,8 @@
             folder.style.display = folder.style.display === "none" ? "block" : "none";
         }
 
-        function showPasswordInput() {
-            // パスワード入力エリアを表示
+        function showPasswordInput(page) {
+            targetPage = page; // 遷移先ページを設定
             document.getElementById('modal-background').style.display = 'block'; // 背景を表示
             document.getElementById('password-modal').style.display = 'block'; // 入力モーダルを表示
             document.getElementById('input-display').innerText = '入力: ';
